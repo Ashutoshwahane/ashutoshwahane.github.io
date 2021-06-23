@@ -28,14 +28,14 @@ describe('application tests', () => {
 
   test('should render link to source code', () => {
     const element = screen.getByTestId('source');
-    expect(element).toHaveAttribute('href', 'https://github.com/adamalston/v2');
+    expect(element).toHaveAttribute('href', 'https://github.com/Ashutoshwahane/v2');
   });
 
   const buttons = {
-    GitHub: 'https://github.com/adamalston/',
-    LinkedIn: 'https://www.linkedin.com/in/adam-alston/',
-    Resume: 'https://drive.google.com/drive/folders/10k8NWflSYQ5laPzuWtK3bzUKzuOeas8i/',
-    Email: 'mailto:aalston9@gmail.com',
+    GitHub: 'https://github.com/Ashutoshwahane/',
+    LinkedIn: 'https://www.linkedin.com/in/ashutoshwahane/',
+    Resume: 'https://drive.google.com/file/d/1WfL6SY-hJXtnF7_sACU2Vf_1lA5mq_ZJ/view',
+    Email: 'mailto:ashutosh.wahane10@gmail.com',
   };
 
   test('should render buttons with links', () => {

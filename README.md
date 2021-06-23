@@ -2,7 +2,7 @@
 
 The second iteration of [adamalston.com](https://www.adamalston.com) built with [React](https://reactjs.org/) and hosted with [Netlify](https://www.netlify.com/).
 
-Previous iteration: [v1](https://github.com/adamalston/v1)
+Previous iteration: [v1](Ashutosh Wahanev1)
 
 <img float="left" height="370" src="images/desktop.png" alt="Desktop Preview" role="img" aria-label="desktop screenshot"> <img align="right" height="370" src="images/mobile.png" alt="Mobile Preview" role="img" aria-label="mobile screenshot">
 

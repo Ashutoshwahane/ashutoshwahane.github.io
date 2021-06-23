@@ -28,8 +28,8 @@ export const Footer = () => {
 
   return (
     <F.Container isMobile={isMobile}>
-      <F.Text theme={theme} aria-label='Designed and built by Adam Alston'>Designed and built by&nbsp;
-        <F.Link theme={theme} data-v2='creator' href='https://www.adamalston.com/'>Adam Alston</F.Link>
+      <F.Text theme={theme} aria-label='Designed and built by Ashutosh Wahane'>Designed and built by&nbsp;
+        <F.Link theme={theme} data-v2='creator' href='https://www.adamalston.com/'>Ashutosh Wahane</F.Link>
         {isMobile ? (
           <></>
         ) : (

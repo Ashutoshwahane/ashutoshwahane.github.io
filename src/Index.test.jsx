@@ -13,7 +13,7 @@ describe('application tests', () => {
 
   test('should render name', () => {
     const element = screen.getByTestId('name');
-    expect(element).toHaveTextContent(/Adam Alston/i);
+    expect(element).toHaveTextContent(/Ashutosh Wahane/i);
   });
 
   test('should render title', () => {
@@ -23,7 +23,7 @@ describe('application tests', () => {
 
   test('should render creator', () => {
     const element = screen.getByTestId('creator');
-    expect(element).toHaveTextContent(/Adam Alston/i);
+    expect(element).toHaveTextContent(/Ashutosh Wahane/i);
   });
 
   test('should render link to source code', () => {

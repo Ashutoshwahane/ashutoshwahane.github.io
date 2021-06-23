@@ -1,10 +1,8 @@
-# <img src="public/favicon.svg" alt="atom" height="24"> adamalston<span></span>.com &middot; [![Build Status](https://travis-ci.com/adamalston/v2.svg?branch=master)](https://travis-ci.com/adamalston/v2) [![Netlify status](https://img.shields.io/netlify/332bbd91-59b7-4091-8781-6f41330399b4)](https://app.netlify.com/sites/adamalston/deploys)
 
-The second iteration of [adamalston.com](https://www.adamalston.com) built with [React](https://reactjs.org/) and hosted with [Netlify](https://www.netlify.com/).
+Hi [ I'm Ashutosh Wahane](https://ashutoshwahane.github.io)
 
-Previous iteration: [v1](Ashutosh Wahanev1)
 
-<img float="left" height="370" src="images/desktop.png" alt="Desktop Preview" role="img" aria-label="desktop screenshot"> <img align="right" height="370" src="images/mobile.png" alt="Mobile Preview" role="img" aria-label="mobile screenshot">
+<img float="left" height="370" src="images/desktop.png" alt="Desktop Preview" role="img" aria-label="desktop screenshot"> <img align="right" height="370" src="images/mobile.jpeg" alt="Mobile Preview" role="img" aria-label="mobile screenshot">
 
 This website's design is both simple and accessible. Dynamic particles create an experience that is interactive and visually inviting. The site offers two themes via a toggle, dark mode (default) and light mode. Once toggled, the selected theme should persist between tabs, windows, and page reloads.
 
@@ -12,7 +10,6 @@ Mobile support for the site ranges from 4 in. displays through 6.7 in. all the w
 
 ## <img src="https://git.io/JUnUc" height="18"> Open Source
 
-I made this website open source under the assumption that others would use the code to create their own websites. I only ask that this code be used with attribution as a significant amount of time was spent writing and optimizing it. Please give proper credit by linking back to [adamalston.com](https://www.adamalston.com/). Thanks!
 
 <details>
   <summary><b>Install &amp; Setup</b></summary>
@@ -60,4 +57,3 @@ Text and icons have a color contrast ratio greater than 7:1 satisfying [WCAG 2.1
 
 ---
 
-If you found this project useful, please consider giving it a <img src="https://git.io/JUn8T" height="14">! If you have any questions or feedback, open an issue and I will get back to you :&#8203;)

@@ -1,34 +1,449 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="author" content="Ashutosh Wahane"/>
-    <meta name="keywords" content="Ashutosh Wahane software development engineer"/>
-    <meta name="title" property="og:title" content="Ashutosh Wahane"/>
-    <meta name="description" property="og:description" content="Source: github source code link"/>
-    <meta property="og:site_name" content="Personal Website"/>
-    <meta property="og:url" content="https://www.ashutoshwahane.me/"/>
-    <meta property="og:locale" content="en_US"/>
-    <meta property="og:image:type" content="image/png"/>
-    <meta property="og:image:width" content="1280"/>
-    <meta property="og:image:height" content="640"/>
-    <meta property="og:image:alt" content="ashutoshwahane.me"/>
-    <meta property="og:type" content="website"/>
-    <link rel="icon" href="/favicon.svg"/>
-    <link rel="canonical" href="ashutoshwahane.me website link"/>
-    <link rel="apple-touch-icon" href="/favicon.svg"/>
-    <link rel="manifest" href="/manifest.webmanifest"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ashutosh Wahane</title>
-    <link href="/static/css/main.b58d8b01.chunk.css" rel="stylesheet">
+    <!--=================== Google Fonts ====================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <!--=================== Remixicons ====================-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!--=================== SwiperJS CSS ====================-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+
+    <!--=================== Main CSS ====================-->
+    <link rel="stylesheet" href="assets/css/main.css">
+
 </head>
+
 <body>
-<noscript>Enable JavaScript to see this website. <a href="github source code link">Source</a></noscript>
-<div id="root"></div>
-<script>
-    !function(e){function r(r){for(var n,l,f=r[0],i=r[1],a=r[2],c=0,s=[];c<f.length;c++)l=f[c],Object.prototype.hasOwnProperty.call(o,l)&&o[l]&&s.push(o[l][0]),o[l]=0;for(n in i)Object.prototype.hasOwnProperty.call(i,n)&&(e[n]=i[n]);for(p&&p(r);s.length;)s.shift()();return u.push.apply(u,a||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,f=1;f<t.length;f++){var i=t[f];0!==o[i]&&(n=!1)}n&&(u.splice(r--,1),e=l(l.s=t[0]))}return e}var n={},o={1:0},u=[];function l(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,l),t.l=!0,t.exports}l.m=e,l.c=n,l.d=function(e,r,t){l.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},l.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},l.t=function(e,r){if(1&r&&(e=l(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(l.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)l.d(t,n,function(r){return e[r]}.bind(null,n));return t},l.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return l.d(r,"a",r),r},l.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},l.p="/";var f=this.webpackJsonpv2=this.webpackJsonpv2||[],i=f.push.bind(f);f.push=r,f=f.slice();for(var a=0;a<f.length;a++)r(f[a]);var p=i;t()}([])
-</script>
-<script src="/static/js/2.d9a93f38.chunk.js"></script>
-<script src="/static/js/main.e90d441b.chunk.js"></script>
+
+    <!--=================== Header ====================-->
+    <header id="header" class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav__brand">
+                    <i class="ri-code-s-slash-line"></i>Dev<Span></Span>
+                </a>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#hero" class="nav__link">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#about" class="nav__link">About</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#qualification" class="nav__link">Qualification</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#project" class="nav__link">Projects</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#service" class="nav__link">Blogs</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contact"  class="nav__link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="nav__toggle">
+                    <i id="nav-toggle" class="ri-menu-3-line"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!--=================== main ====================-->
+    <main class="main">
+        <!--=================== Hero ====================-->
+        <section id="hero" class="hero">
+            <div class="container">
+                <div class="d-grid hero__wrapper">
+                    <div class="hero__content">
+                        <h1 class="hero__title">Hi, I am Ashutosh,<br>Software Developer.</h1>
+                        <p class="hero__description">Android Developer
+                            Computer Science Undergrad, Linux and Mobile Tech Enthusiast, Video Editing, and spend most time to explore the open-source world.
+                        </p>
+                        <div class="hero__info">
+                            <div class="hero__info-wrapper">
+                                <p class="hero__info-number">03+</p>
+                                <h2 class="hero__info-title">Years<br>Experience</h2>
+                            </div>
+                            <div class="hero__info-wrapper">
+                                <p class="hero__info-number">15+</p>
+                                <h2 class="hero__info-title">Projects<br>Completed</h2>
+                            </div>
+                            <!-- <div class="hero__info-wrapper">
+                                <p class="hero__info-number">03+</p>
+                                <h2 class="hero__info-title">Companies<br> Worked</h2>
+                            </div> -->
+                        </div>
+                    </div>
+                    <img src="assets/img/Ashutosh.jpg" alt="Wahane" class="hero__img">
+                </div>
+            </div>
+        </section>
+
+        <!--=================== About ====================-->
+        <section id="about" class="section about">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">About Me</h2>
+                    <span class="section__subtitle">Who am I</span>
+                </div>
+                <div class="d-grid about__wrapper">
+                    <div class="about__content">
+                        <h3 class="about__title">I'm an experienced Android developer with over 3 years of Experience.</h3>
+                        <p class="about__description">I've had the privilege to work on a diverse range of projects like Gaming Companion app, Smart home app, Blockchain app and Complex consumer facing app.
+                            When I'm not coding, I love to stay up-to-date with the latest technology trends and also I love video editing.
+                            Apart from computer stuff I like dancing and football.
+                        </p>
+                        <a href="#project" class="btn btn--primary">Know More</a>
+                    </div>
+                    <div class="skills">
+                        <h3 class="skills__title">Technologies I've been working with:</h3>
+                        <div class="skills__wrapper">
+                            <div class="skills__content">
+                                <h4 class="skills__subtitle">Mobile</h4>
+                                <ul class="skills__list">
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Android</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Jetpack Compose</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Clean Architecture</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        MVVM</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Kotlin Coroutine</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Kotlin Multiplatform</li>
+                                     <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        IOS</li>
+                                </ul>
+                            </div>
+                            <div class="skills__content">
+                                <h4 class="skills__subtitle">Backend</h4>
+                                <ul class="skills__list">
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Django</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Flask</li>
+                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
+                                        Firebase</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=================== Qualification ====================-->
+        <section id="qualification" class="section qualification">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Qualification</h2>
+                    <span class="section__subtitle">Experience & Education</span>
+                </div>
+                <!--============== Professional Experience ============-->
+                <div class="qualification__wrapper">
+                    <h3 class="qualification__name">
+                        <i class="ri-briefcase-fill"></i>
+                        Professional Experience
+                    </h3>
+                    <div class="d-grid qualification__content">
+                        <!-- Experience 1-->
+                        <div class="qualification__item">
+                            <h3 class="qualification__title">Binaryveda Mumbai</h3>
+                            <p class="qualification__description">As an aspiring Android developer, The project I am working on is not only showcased my technical skills but also highlighted my project management and problem-solving capabilities..
+                                manage client expectations, and deliver a high-quality mobile application. 
+                                I successfully created an app that met and exceeded the client's expectations. 
+                                This project not only expanded my technical proficiency but also demonstrated my commitment to producing exceptional results
+                            </p>
+
+                            <p class="hash_tag"> #JetpackCompose #CleanArchitecture #GraphQl #AWSServices #Socket #KotlinCoroutine
+                            </p>
+                            <span class="qualification__date">2022 - Present</span>
+                        </div>
+                         <!-- Experience 2-->
+                         <div class="qualification__item">
+                            <h3 class="qualification__title">DIATOZ Bangalore</h3>
+                            <p class="qualification__description">
+                            I have worked on a Smart Home Application app ( Kotlin ) that can control the smart lights and remotes using BLE-Mesh Technology.
+                            Followed MVVM design pattern, Used Jetpack Navigations, Material UI, ViewPager2, Room Database, Kotlin Coroutine etc.
+                            I also contributed to iOS Development by implementing Almofire for API Calls, Navigation Controllers and publishing it to Test flight
+                        </p>
+                        <p class="hash_tag"> #Kotlin #MVVM #BLE #KotlinCoroutine #RoomDB #Retrofit
+                        </p>
+                            <span class="qualification__date">2020 - 2022</span>
+                        </div>
+                        <!-- Experience 3-->
+                        <div class="qualification__item">
+                            <h3 class="qualification__title">Effcode Pune</h3>
+                            <p class="qualification__description">
+                                I worked as a Backend Developer ( Django ). Created APIs by using Django REST framework on REST Architecture. and Created an Onboarding Slack Bot using Flask Framework.
+                               I was responsible to create a python script for migration of the database from Mongo DB (NoSQL) to Postgres DB (SQL).
+                            </p>
+                               <p class="hash_tag"> #Python #Django #RESTAPI #PostgresDB #MongoDB #Flask
+                            </p>
+                            <span class="qualification__date">2019 - 2020</span>
+                        </div>
+                    </div>
+                </div>
+                <!--============== Education ============-->
+                <div class="qualification__wrapper">
+                    <h3 class="qualification__name">
+                        <i class="ri-booklet-fill"></i>
+                        Education
+                    </h3>
+                    <div class="d-grid qualification__content">
+                        <!-- Education 1-->
+                        <div class="qualification__item">
+                            <h3 class="qualification__title">Bachelor of Computer Science</h3>
+                            <p class="qualification__description">As a computer science student, I was exploring the different fields like Cyber Security (White hacking). when I start learning computer languages I got fascinated with software development stuff.
+                            I have honed my programming skills through various projects and assignments.
+                            </p>
+                            <span class="qualification__date">2017 - 2020</span>
+                        </div>
+                        <!-- Education 2-->
+                        <!-- <div class="qualification__item">
+                            <h3 class="qualification__title">Full Stack Developer</h3>
+                            <p class="qualification__description">I'm currently in the ALX software developer training program, 
+                                where I'm gaining hands-on experience in developing and designing software solutions. 
+                                This intensive training provides me with a solid foundation in software development , learning the fundamentals of software development and building projects using the MERN stack.
+                            </p>
+                            <span class="qualification__date">2022 - 2023</span>
+                        </div> -->
+                        <!-- Education 3-->
+                        <!-- <div class="qualification__item">
+                            <h3 class="qualification__title">Software Engineer</h3>
+                            <p class="qualification__description">Lorem ipsum dolor sit amet consectetur.
+                                Facilisi vitae bibendum praesent sodales
+                                urna vel molestie neque augue.</p>
+                            <span class="qualification__date">2010 - 2014</span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="qualification__footer">
+                    <p class="qualification__footer-text">See my full resume</p>
+                    <a href="./assets/Ashutosh's Resume.pdf" download class="btn btn--primary">Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!--=================== services ====================-->
+        <!-- <section id="service" class="section service">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Services</h2>
+                    <span class="section__subtitle">What I do</span>
+                </div>
+                <div class="d-grid service__wrapper"> -->
+                    <!--========= service card 1 =========-->
+                    <!-- <div class="service__card">
+                        <div class="service__icon">
+                            <i class="ri-layout-4-fill"></i>
+                        </div>
+                        <h3 class="service__title">Frontend<br>Development</h3>
+                        <a href="#" class="service__link">Know More</a>
+                    </div> -->
+                    <!--========= service card 2 =========-->
+                    <!-- <div class="service__card">
+                        <div class="service__icon">
+                            <i class="ri-code-s-slash-line"></i>
+                        </div>
+                        <h3 class="service__title">Backend<br> Development</h3>
+                        <a href="#" class="service__link">Know More</a>
+                    </div> -->
+                    <!--========= service card 3 =========-->
+                    <!-- <div class="service__card">
+                        <div class="service__icon">
+                            <i class="ri-pen-nib-fill"></i>
+                        </div>
+                        <h3 class="service__title">UI/UX<br> Design</h3>
+                        <a href="#" class="service__link">Know More</a>
+                    </div> -->
+                <!-- </div>
+            </div>
+        </section> -->
+
+        <!--=================== Projects ====================-->
+        <section id="project" class="section project">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Projects</h2>
+                    <span class="section__subtitle">My recent work</span>
+                </div>
+                <div class="d-grid project__wrapper">
+                    <!--============== project 1 =============-->
+                    <div class="project__content">
+                        <img src="assets/img/project2.png" alt="Agency Website" class="project__img">
+                        <h3 class="project__title">NFT Website</h3>
+                        <p class="project__description">NFT website is adaptable to all devices, with 
+                        ui components and animated interactions.</p>
+                        <a href="#" class="project__link">View Project
+                            <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                    <!--============== project 2 =============-->
+                    <div class="project__content">
+                        <img src="assets/img/project3.png" alt="Crypto Application " class="project__img">
+                        <h3 class="project__title">Modern Hotel Page</h3>
+                        <p class="project__description">Restaurant Landing page adaptable to all devices, 
+                        with ui components and animated interactions.</p>
+                        <a href="https://github.com/MuneneCalvin/100-Days-Of-Code/tree/main/Month%201/Week%2001/Day%2005" class="project__link">View Project
+                            <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                    <!--============== project 3 =============-->
+                    <div class="project__content">
+                        <img src="assets/img/project4.png" alt="Ecommerce Website" class="project__img">
+                        <h3 class="project__title">Website Landing Page</h3>
+                        <p class="project__description">Website dashboard adaptable to all devices, 
+                        with ui components and animated interactions.</p>
+                        <a href="https://github.com/MuneneCalvin/100-Days-Of-Code/tree/main/Month%201/Week%2001/Day%2006" class="project__link">View Project
+                            <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                    <!-- ============== project 4 ============= -->
+                    <div class="project__content">
+                        <img src="assets/img/preview_5.png" alt="Crypto Application " class="project__img">
+                        <h3 class="project__title">Modern Portfolio</h3>
+                        <p class="project__description">Portfolio responsive to all devices, 
+                        with ui components and smooth scroll.</p>
+                        <a href="#" class="project__link">View Project
+                            <i class="ri-arrow-right-line"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--=================== Testimonials ====================-->
+        <!-- <section id="testimonial" class="section testimonial">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Testimonials</h2>
+                    <span class="section__subtitle">What my clients say</span>
+                </div>
+                <div class="testimonial__wrapper swiper">
+                    <div class="swiper-wrapper">
+                        ========= testimonial 1 ============ -->
+                        <!-- <div class="testimonial__card swiper-slide">
+                            <img src="assets/img/testimonial1.jpg" alt="Natasha Smith" class="testimonial__img">
+                            <div class="testimonial__content">
+                                <p class="testimonial__description">Lorem ipsum dolor sit amet consectetur. Dignissim
+                                    tincidunt egestas vitae porttitor nulla gravida commodo.</p>
+                                <h3 class="testimonial__name">Natasha Smith</h3>
+                                <span class="testimonial__occupation">UI/UX Designer at Dribbble</span>
+                            </div>
+                        </div> -->
+                        <!--========= testimonial 2 ============ -->
+                        <!-- <div class="testimonial__card swiper-slide">
+                            <img src="assets/img/testimonial2.jpg" alt="John Clarke" class="testimonial__img">
+                            <div class="testimonial__content">
+                                <p class="testimonial__description">Lorem ipsum dolor sit amet consectetur. Dignissim
+                                    tincidunt egestas vitae porttitor nulla gravida commodo.</p>
+                                <h3 class="testimonial__name">John Clarke</h3>
+                                <span class="testimonial__occupation">Web Developer at Facebook</span>
+                            </div>
+                        </div> -->
+                        <!--========= testimonial 3 ============ -->
+                        <!-- <div class="testimonial__card swiper-slide">
+                            <img src="assets/img/testimonial3.jpg" alt="Emily Walker" class="testimonial__img">
+                            <div class="testimonial__content">
+                                <p class="testimonial__description">Lorem ipsum dolor sit amet consectetur. Dignissim
+                                    tincidunt egestas vitae porttitor nulla gravida commodo.</p>
+                                <h3 class="testimonial__name">Emily Walker</h3>
+                                <span class="testimonial__occupation">Backend Developer at Google
+                                </span>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!--=================== Contact ====================-->
+        <!-- <section id="contact" class="section contact">
+            <div class="container">
+                <div class="d-grid contact__wrapper">
+                    <div class="contact__content">
+                        <h2 class="contact__title">Interested in working together? Let's talk</h2>
+                        <p class="contact__description">
+                            Ready to work together on your next software project? I'd love to hear from you! 
+                            Feel free to get in touch using the contact information below.
+                            Whether uou have a specific project in mind or just want to chat about your software development needs , I am here to help.
+                            I will respond to your message as quickly as possible and look forward to connecting with you soon.
+                        </p>
+                    </div>
+                    <div class="contact__btn">
+                        <a href="#contact" class="btn btn--secondary">Get in touch</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main> -->
+    <!--=================== footer ====================-->
+    <footer id="footer" class="footer">
+        <section id="contact" class="section contact">
+        <div class="container">
+            <div class="d-grid footer__wrapper">
+                <div class="footer__content">
+                    <h4 class="footer__title">Follow Me</h4>
+                    <ul class="footer__social-list">
+                        <li class="footer__social-item">
+                            <a href="https://api.whatsapp.com/send?phone=8888146125&text=Hello%2C%20how%20may%20I%20be%20of%20assistance%3F" target="_blank" class="footer__social-link">
+                                <i class="ri-whatsapp-fill"></i>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://www.instagram.com/ashutoshwahane/" target="_blank" class="footer__social-link">
+                                <i class="ri-instagram-fill"></i>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://www.linkedin.com/in/ashutoshwahane/" target="_blank" class="footer__social-link">
+                                <i class="ri-linkedin-fill"></i>
+                            </a>
+                        </li>
+                        <li class="footer__social-item">
+                            <a href="https://github.com/Ashutoshwahane" target="_blank" class="footer__social-link">
+                                <i class="ri-github-fill"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__content">
+                    <h4 class="footer__title">Email Me</h4>
+                    <a href="#" class="footer__contact">ashutosh.wahane10@gmail.com</a>
+                </div>
+                <div class="footer__content">
+                    <h4 class="footer__title">Call Me</h4>
+                    <a href="#" class="footer__contact">8888146125</a>
+                </div>
+            </div>
+            <p class="footer__copyright">&copy; 2023 CyberNerd404. All Rights Reserved</p>
+        </div>
+    </section>
+    </footer>
+
+    <!--=================== SwiperJS  ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <!--=================== ScrollReveal ==================-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--=================== Main JS ====================-->
+    <script src="assets/js/main.js"></script>
 </body>
+
 </html>
+

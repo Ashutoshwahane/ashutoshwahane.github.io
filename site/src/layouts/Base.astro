@@ -1,0 +1,44 @@
+---
+import '../styles/site.css';
+interface Props { title: string; description: string; active?: 'work' | 'blog'; ogType?: string; mainClass?: string; image?: string }
+const { title, description, active, ogType = 'website', mainClass = 'page', image } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === 'Ashutosh Wahane' ? title : `${title} — Ashutosh Wahane`;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>{fullTitle}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <link rel="icon" href="/assets/img/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="Ashutosh Wahane — Writing" href="/blog/rss.xml">
+  <meta property="og:type" content={ogType}>
+  <meta property="og:title" content={fullTitle}>
+  <meta property="og:description" content={description}>
+  <meta property="og:url" content={canonical}>
+  {image && <meta property="og:image" content={image}>}
+  <meta name="twitter:card" content={image ? 'summary_large_image' : 'summary'}>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@400;500;600&display=swap">
+</head>
+<body>
+  <header class="site"><div class="wrap">
+    <a class="brand" href="/">AW<sup>®</sup></a>
+    <nav class="top" aria-label="Site">
+      <a href="/">HOME</a>
+      <a href="/work/" aria-current={active === 'work' ? 'page' : undefined}>WORK</a>
+      <a href="/blog/" aria-current={active === 'blog' ? 'page' : undefined}>WRITING</a>
+    </nav>
+  </div></header>
+  <main class={mainClass}><slot /></main>
+  <footer class="site"><div class="wrap">
+    <span>© {new Date().getFullYear()} ASHUTOSH WAHANE</span>
+    <span><a href="/work/">WORK</a> · <a href="/blog/">WRITING</a> · <a href="/blog/rss.xml">RSS</a></span>
+    <span><a href="https://www.linkedin.com/in/ashutoshwahane/">LINKEDIN ↗</a> · <a href="https://github.com/Ashutoshwahane">GITHUB ↗</a></span>
+  </div></footer>
+</body>
+</html>

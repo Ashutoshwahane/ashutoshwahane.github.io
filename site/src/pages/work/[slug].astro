@@ -1,0 +1,51 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Phone from '../../components/Phone.astro';
+import { getWork, getPosts, readingMinutes } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const work = await getWork();
+  return work.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content } = await render(entry);
+const hasBody = (entry.body ?? '').trim().length > 0;
+const stories = (await getPosts()).filter((p) => p.data.product?.id === entry.id);
+---
+<Base title={d.title} description={`${d.tagline} ${d.summary}`} active="work" image={d.screenshot}>
+  <div class="wrap">
+    <div class="p-hero">
+      <div>
+        <div class="crumb"><a href="/work/">WORK</a> / {String(d.order).padStart(2, '0')} / {d.title.toUpperCase()} {d.draft && <span class="draft-flag">DRAFT</span>}</div>
+        <h1>{d.title}</h1>
+        <p class="tagline">{d.tagline}</p>
+        <p class="lede">{d.summary}</p>
+        <div class="ctas">
+          {d.primaryCta && <a class="btn" href={d.primaryCta.href}>{d.primaryCta.label.toUpperCase()}</a>}
+          {d.secondaryCta && <a class="link" href={d.secondaryCta.href}>{d.secondaryCta.label.toUpperCase()}</a>}
+          {stories[0] && <a class="link" href={`/blog/${stories[0].id}/`}>READ THE STORY →</a>}
+        </div>
+      </div>
+      <div class={`stage theme-${d.theme}`}><Phone src={d.screenshot} alt={d.screenshotAlt} /></div>
+    </div>
+    {d.facts.length > 0 && (
+      <dl class="facts">{d.facts.map((f) => <div><dt>{f.label.toUpperCase()}</dt><dd>{f.value}</dd></div>)}</dl>
+    )}
+    {d.features.length > 0 && (
+      <div class="p-section"><h2>WHAT IT DOES</h2>
+        <div class="features">{d.features.map((f) => <div><h3>{f.title}</h3><p>{f.text}</p></div>)}</div>
+      </div>
+    )}
+    {hasBody && (
+      <div class="p-section"><h2>NOTES</h2><div class="p-note" style="font-size:15px;line-height:1.75;color:var(--mist);margin:0"><Content /></div></div>
+    )}
+    {stories.map((s) => (
+      <a class="story-link" href={`/blog/${s.id}/`}>
+        <div><span class="k">PRODUCT STORY · {readingMinutes(s)} MIN READ {s.data.draft && '· DRAFT'}</span><h3>{s.data.title}</h3></div>
+        <span class="btn">READ →</span>
+      </a>
+    ))}
+  </div>
+</Base>

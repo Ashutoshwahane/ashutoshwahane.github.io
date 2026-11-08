@@ -1,0 +1,5 @@
+---
+interface Props { status: 'live' | 'beta' | 'building'; label: string }
+const { status, label } = Astro.props;
+---
+<span class={status === 'building' ? 'status dev' : 'status'}><i></i>{label.toUpperCase()}</span>

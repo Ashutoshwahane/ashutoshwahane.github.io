@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Phone from '../../components/Phone.astro';
+import Status from '../../components/Status.astro';
+import { getWork } from '../../lib/site';
+const all = await getWork();
+const featured = all.filter((w) => w.data.featured);
+const rest = all.filter((w) => !w.data.featured);
+---
+<Base title="Work" description="Independent apps Ashutosh Wahane designs, builds and ships: GlassPad, Leonida Insider and more." active="work">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Things I’ve <em>built.</em></h1>
+      <p>Independent apps I design, build and ship myself, from first sketch to store listing. Each page tells the story behind it.</p>
+    </div>
+    <div class="label-row"><span>FEATURED</span><span>{String(featured.length).padStart(2, '0')} PRODUCTS</span></div>
+    <div class="work-feature" style="margin-top:22px">
+      {featured.map((w) => (
+        <a class="wcard" href={`/work/${w.id}/`}>
+          <div class={`visual theme-${w.data.theme}`}><Phone src={w.data.screenshot} alt={w.data.screenshotAlt} /></div>
+          <div class="body">
+            <div class="meta"><span>{w.data.platformsShort.toUpperCase()}</span><Status status={w.data.status} label={w.data.statusLabel} /></div>
+            <h3>{w.data.title}</h3>
+            <span class="tag">{w.data.tagline}</span>
+            <p>{w.data.summary}</p>
+            <span class="more">READ THE CASE STUDY →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+    {rest.length > 0 && (
+      <div class="work-list">
+        <div class="label-row"><span>IN THE WORKSHOP</span><span>BUILDING NOW</span></div>
+        {rest.map((w) => (
+          <a class="row" href={`/work/${w.id}/`}>
+            <span class="n">{String(w.data.order).padStart(2, '0')}</span>
+            <strong>{w.data.title} {w.data.draft && <span class="draft-flag">DRAFT</span>}</strong>
+            <span class="d">{w.data.summary}</span>
+            <Status status={w.data.status} label={w.data.statusLabel} />
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</Base>

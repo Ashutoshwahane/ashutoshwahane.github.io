@@ -1,0 +1,60 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getPosts, getWork, readingMinutes, formatDate, CATEGORIES } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({ params: { slug: post.id }, props: { post, next: posts[i + 1] ?? posts[0] } }));
+}
+const { post, next } = Astro.props;
+const d = post.data;
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+const product = d.product ? (await getWork()).find((w) => w.id === d.product!.id) : undefined;
+---
+<Base title={d.title} description={d.description} active="blog" ogType="article" mainClass="page reading" image={product?.data.screenshot}>
+  <div class="progress" aria-hidden="true"><i id="prog"></i></div>
+  <div class="wrap">
+    <header class="art-head">
+      <div class="post-meta"><a class="cat" href="/blog/">← {CATEGORIES[d.category].toUpperCase()}</a><time datetime={d.date.toISOString()}>{formatDate(d.date)}</time><span>{readingMinutes(post)} MIN READ</span>{d.draft && <span class="draft-flag">DRAFT · NOT PUBLISHED</span>}</div>
+      <h1>{d.title}</h1>
+      <p class="dek">{d.description}</p>
+      <div class="byline"><span class="av">AW</span><span><strong style="color:var(--ink)">Ashutosh Wahane</strong> · Developer, building independent apps</span></div>
+    </header>
+    <div class="art">
+      <article class="prose" id="prose"><Content /></article>
+      {toc.length > 1 && (
+        <nav class="toc" aria-label="On this page"><span class="k">ON THIS PAGE</span>{toc.map((h) => <a href={`#${h.slug}`} data-s={h.slug}>{h.text}</a>)}</nav>
+      )}
+    </div>
+    <div class="endcard">
+      {product && (
+        <a class="prod-card" href={`/work/${product.id}/`}>
+          {product.data.icon ? <img class="ic" src={product.data.icon} alt="" width="52" height="52"> : <span class={`ic theme-${product.data.theme}`}></span>}
+          <div><h3>{product.data.title}</h3><p>{product.data.statusLabel}</p></div>
+          <span class="btn">SEE THE APP →</span>
+        </a>
+      )}
+      <div class="author"><span class="av">AW</span><div><strong>Ashutosh Wahane</strong>Android and Kotlin Multiplatform developer building independent apps. Writing about how they get made.</div></div>
+      <div class="next"><a href="/blog/">← ALL WRITING</a>{next && next.id !== post.id && <a href={`/blog/${next.id}/`}>NEXT: {next.data.title.toUpperCase()} →</a>}</div>
+    </div>
+  </div>
+  <script>
+    const prog = document.getElementById('prog');
+    const prose = document.getElementById('prose');
+    const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+    const heads = links.map((a) => document.getElementById(a.dataset.s!)).filter(Boolean) as HTMLElement[];
+    function onScroll() {
+      if (!prog || !prose) return;
+      const r = prose.getBoundingClientRect();
+      const total = r.height - window.innerHeight * 0.6;
+      prog.style.width = Math.min(1, Math.max(0, (-r.top + 120) / Math.max(1, total))) * 100 + '%';
+      let cur: string | null = null;
+      heads.forEach((h) => { if (h.getBoundingClientRect().top < 160) cur = h.id; });
+      links.forEach((a) => a.classList.toggle('on', a.dataset.s === cur));
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  </script>
+</Base>

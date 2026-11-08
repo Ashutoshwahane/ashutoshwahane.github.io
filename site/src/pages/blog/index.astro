@@ -1,0 +1,62 @@
+---
+import Base from '../../layouts/Base.astro';
+import Phone from '../../components/Phone.astro';
+import { getPosts, getWork, readingMinutes, formatDate, CATEGORIES } from '../../lib/site';
+const posts = await getPosts();
+const work = await getWork();
+const [lead, ...rest] = posts;
+const leadProduct = lead?.data.product ? work.find((w) => w.id === lead.data.product!.id) : undefined;
+const counts = Object.fromEntries(Object.keys(CATEGORIES).map((k) => [k, posts.filter((p) => p.data.category === k).length]));
+---
+<Base title="Writing" description="Stories behind Ashutosh Wahane's products, notes on AI, and Android and Kotlin Multiplatform write-ups." active="blog">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Notes from the <em>workshop.</em></h1>
+      <p>Stories behind my products, what I’m learning about AI, and the Android and KMP details I wish someone had written down.</p>
+    </div>
+    {posts.length === 0 ? (
+      <div class="empty-state">
+        <span class="mono" style="font-size:10px;color:var(--mist-dim)">FIRST STORIES SOON</span>
+        <h2>Nothing published yet.</h2>
+        <p>The first product stories are being written. Follow along with RSS, or look at what I’ve built in the meantime.</p>
+        <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:8px"><a class="btn" href="/work/">SEE MY WORK →</a><a class="link" href="/blog/rss.xml">RSS FEED</a></div>
+      </div>
+    ) : (
+      <>
+        <div class="filters" role="group" aria-label="Filter by category">
+          <button type="button" aria-pressed="true" data-f="all">ALL<span>{posts.length}</span></button>
+          {Object.entries(CATEGORIES).map(([k, label]) => counts[k] > 0 && (
+            <button type="button" aria-pressed="false" data-f={k}>{label.toUpperCase()}<span>{counts[k]}</span></button>
+          ))}
+        </div>
+        <a class="lead-post" href={`/blog/${lead.id}/`} data-cat={lead.data.category}>
+          <div class={`cover theme-${leadProduct?.data.theme ?? 'glass'}`}>{leadProduct?.data.screenshot ? <Phone src={leadProduct.data.screenshot} alt="" /> : <b>AW</b>}</div>
+          <div class="txt">
+            <div class="post-meta"><span class="cat">{CATEGORIES[lead.data.category].toUpperCase()}</span><span>{formatDate(lead.data.date)}</span><span>{readingMinutes(lead)} MIN READ</span>{lead.data.draft && <span class="draft-flag">DRAFT</span>}</div>
+            <h2>{lead.data.title}</h2>
+            <p>{lead.data.description}</p>
+            <span class="mono" style="font-size:11px;color:var(--teal)">READ →</span>
+          </div>
+        </a>
+        <div class="posts">
+          {rest.map((p) => (
+            <a class="post-row" href={`/blog/${p.id}/`} data-cat={p.data.category}>
+              <span class="date">{formatDate(p.data.date)}</span>
+              <div><h3>{p.data.title} {p.data.draft && <span class="draft-flag">DRAFT</span>}</h3><p>{p.data.description}</p></div>
+              <span class="cat">{CATEGORIES[p.data.category].toUpperCase()}</span>
+            </a>
+          ))}
+        </div>
+        <div class="rss"><span>{posts.length} {posts.length === 1 ? 'POST' : 'POSTS'}</span><a href="/blog/rss.xml">FOLLOW VIA RSS ↗</a></div>
+      </>
+    )}
+  </div>
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('.filters button');
+    buttons.forEach((b) => b.addEventListener('click', () => {
+      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      const f = b.dataset.f;
+      document.querySelectorAll<HTMLElement>('[data-cat]').forEach((el) => { el.hidden = !(f === 'all' || el.dataset.cat === f); });
+    }));
+  </script>
+</Base>

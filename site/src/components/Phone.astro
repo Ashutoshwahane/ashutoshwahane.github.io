@@ -1,0 +1,7 @@
+---
+interface Props { src?: string; alt?: string; width?: number }
+const { src, alt = '', width } = Astro.props;
+---
+<div class="phone" style={width ? `width:${width}px` : undefined}>
+  {src ? <img class="shot" src={src} alt={alt} loading="lazy" decoding="async"> : <div class="shot" aria-hidden="true"></div>}
+</div>

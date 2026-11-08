@@ -12,8 +12,22 @@ const d = post.data;
 const { Content, headings } = await render(post);
 const toc = headings.filter((h) => h.depth === 2);
 const product = d.product ? (await getWork()).find((w) => w.id === d.product!.id) : undefined;
+const shareImage = d.image ? new URL(d.image, Astro.site).href : undefined;
+const url = new URL(`/blog/${post.id}/`, Astro.site).href;
+const schema = [{
+  '@type': 'BlogPosting',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.date.toISOString(),
+  url,
+  mainEntityOfPage: url,
+  image: shareImage ?? 'https://ashutoshwahane.dev/og-default.jpg',
+  author: { '@id': 'https://ashutoshwahane.dev/#person' },
+  publisher: { '@id': 'https://ashutoshwahane.dev/#person' },
+  ...(product ? { about: { '@type': 'SoftwareApplication', name: product.data.title, url: new URL(`/work/${product.id}/`, Astro.site).href } } : {}),
+}];
 ---
-<Base title={d.title} description={d.description} active="blog" ogType="article" mainClass="page reading" image={product?.data.screenshot}>
+<Base title={d.title} description={d.description} active="blog" ogType="article" mainClass="page reading" image={shareImage} published={d.date} schema={schema}>
   <div class="progress" aria-hidden="true"><i id="prog"></i></div>
   <div class="wrap">
     <header class="art-head">

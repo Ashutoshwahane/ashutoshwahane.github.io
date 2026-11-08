@@ -4,6 +4,7 @@ description: A Mac mini on the road, no keyboard or mouse in my bag, and the iPh
 date: 2026-11-09
 category: story
 product: glasspad
+image: /blog/glasspad/og.jpg
 draft: false
 ---
 

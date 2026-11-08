@@ -33,6 +33,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     category: z.enum(['story', 'ai', 'android']),
     product: reference('work').optional(),
+    image: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });

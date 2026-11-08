@@ -12,9 +12,21 @@ const { entry } = Astro.props;
 const d = entry.data;
 const { Content } = await render(entry);
 const hasBody = (entry.body ?? '').trim().length > 0;
+const os = d.platformsShort.replace(/·/g, ',');
+const schema = [{
+  '@type': 'SoftwareApplication',
+  name: d.title,
+  description: d.summary,
+  applicationCategory: 'UtilitiesApplication',
+  operatingSystem: os,
+  url: new URL(`/work/${entry.id}/`, Astro.site).href,
+  ...(d.screenshot ? { screenshot: d.screenshot } : {}),
+  ...(d.website ? { sameAs: [d.website] } : {}),
+  author: { '@id': 'https://ashutoshwahane.dev/#person' },
+}];
 const stories = (await getPosts()).filter((p) => p.data.product?.id === entry.id);
 ---
-<Base title={d.title} description={`${d.tagline} ${d.summary}`} active="work" image={d.screenshot}>
+<Base title={d.title} description={`${d.tagline} ${d.summary.split(". ")[0].replace(/\.$/, "")}.`} active="work" schema={schema}>
   <div class="wrap">
     <div class="p-hero">
       <div>

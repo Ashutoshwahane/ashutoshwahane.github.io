@@ -19,6 +19,7 @@ const work = defineCollection({
     icon: z.string().optional(),
     screenshot: z.string().optional(),
     screenshotAlt: z.string().optional(),
+    image: z.string().optional(),
     website: z.string().url().optional(),
     primaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
     secondaryCta: z.object({ label: z.string(), href: z.string() }).optional(),

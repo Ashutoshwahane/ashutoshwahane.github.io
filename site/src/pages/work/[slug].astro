@@ -24,9 +24,10 @@ const schema = [{
   ...(d.website ? { sameAs: [d.website] } : {}),
   author: { '@id': 'https://ashutoshwahane.dev/#person' },
 }];
+const shareImage = d.image ? new URL(d.image, Astro.site).href : undefined;
 const stories = (await getPosts()).filter((p) => p.data.product?.id === entry.id);
 ---
-<Base title={d.title} description={`${d.tagline} ${d.summary.split(". ")[0].replace(/\.$/, "")}.`} active="work" schema={schema}>
+<Base title={d.title} description={`${d.tagline} ${d.summary.split(". ")[0].replace(/\.$/, "")}.`} active="work" image={shareImage} schema={schema}>
   <div class="wrap">
     <div class="p-hero">
       <div>

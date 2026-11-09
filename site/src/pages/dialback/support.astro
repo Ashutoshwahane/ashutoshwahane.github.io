@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DIALBACK as D } from '../../lib/dialback';
+---
+<Base title="Dialback support" description="Help for Dialback, the keypad-phone launcher for Android: contact, restoring Dialback Pro, switching back to your old launcher and uninstalling." mainClass="page reading">
+  <div class="wrap">
+    <header class="art-head">
+      <div class="post-meta"><a class="cat" href="/work/dialback/">← DIALBACK</a><span>SUPPORT</span></div>
+      <h1>Dialback support</h1>
+      <p class="dek">Stuck, or want your old home screen back? Here’s how.</p>
+    </header>
+    <div class="doc">
+      <article class="prose">
+        <h2 id="contact">Contact</h2>
+        <p>Email <a href={`mailto:${D.email}?subject=Dialback%20support`}>{D.email}</a>. Include your phone model and Android version if something isn’t working.</p>
+
+        <h2 id="restore">Restore Dialback Pro</h2>
+        <ol>
+          <li>Make sure your phone is signed in to the same Google account you bought Pro with.</li>
+          <li>Open the Pro screen in Dialback.</li>
+          <li>Tap <strong>Restore purchases</strong>.</li>
+        </ol>
+
+        <h2 id="switch-back">Switch back to your old launcher</h2>
+        <p>From Dialback: hold the red <strong>End</strong> key, choose <strong>Exit</strong>, then <strong>Use normal launcher</strong>.</p>
+        <p>From Android settings: go to <strong>Settings → Apps → Default apps → Home app</strong> and pick your previous launcher. Menu names vary slightly between phone makers.</p>
+
+        <h2 id="uninstall">Uninstall</h2>
+        <p>Switch back to your old launcher first (above), then uninstall Dialback from the Google Play app (<strong>Manage apps &amp; device</strong>) or from <strong>Settings → Apps → Dialback → Uninstall</strong>. Uninstalling removes all Dialback settings from your phone. A Pro purchase stays with your Google account.</p>
+
+        <h2 id="privacy">Privacy</h2>
+        <p>Read the <a href="/dialback/privacy/">Dialback privacy policy</a>.</p>
+      </article>
+    </div>
+  </div>
+</Base>
+<style>
+  .doc{max-width:1000px;margin:0 auto;padding-bottom:70px}
+</style>

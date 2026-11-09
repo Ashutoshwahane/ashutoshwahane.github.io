@@ -1,0 +1,100 @@
+---
+import Base from '../../layouts/Base.astro';
+import { DIALBACK as D } from '../../lib/dialback';
+import { formatDate } from '../../lib/site';
+
+const rows = [
+  ['App activity (app opens, sessions, in-app events)', 'Yes', 'Google (Firebase Analytics)', 'Analytics', 'No'],
+  ['Device or other IDs (app-instance ID, advertising ID)', 'Yes', 'Google (Firebase Analytics, AdMob)', 'Analytics, advertising', 'Ad use only when you choose to watch an ad; personalised ads only with consent'],
+  ['Approximate location (country/region from IP)', 'Yes', 'Google (Firebase Analytics, AdMob)', 'Analytics, advertising', 'No'],
+  ['Device info (model, OS version)', 'Yes', 'Google (Firebase Analytics, AdMob)', 'Analytics, advertising', 'No'],
+  ['Purchase history', 'Handled by Google Play', 'Google Play', 'Unlock and restore Dialback Pro', 'Only if you buy Pro'],
+  ['Installed apps list', 'No (stays on your device)', '—', 'Show your apps on the home screen', '—'],
+  ['Phone numbers you type', 'No', 'Passed to your dialer only when you press Call', 'Calling', '—'],
+  ['Contacts, call log, SMS, photos, audio, precise location, name, email', 'No', '—', '—', '—'],
+];
+---
+<Base title="Dialback privacy policy" description="How Dialback, the keypad-phone launcher for Android, handles your data: what it collects, who it is shared with and your choices." mainClass="page reading">
+  <div class="wrap">
+    <header class="art-head">
+      <div class="post-meta"><a class="cat" href="/work/dialback/">← DIALBACK</a><time datetime={D.updated.toISOString().slice(0, 10)}>LAST UPDATED: {formatDate(D.updated)}</time></div>
+      <h1>Dialback privacy policy</h1>
+      <p class="dek">Dialback has no account and does not ask for your contacts, calls, messages or location. It uses Google services for analytics, optional ads and purchases.</p>
+    </header>
+    <div class="doc">
+      <article class="prose">
+        <h2 id="summary">Data safety summary</h2>
+        <div class="tbl" role="region" aria-label="Data safety summary" tabindex="0">
+          <table>
+            <thead><tr><th>Data type</th><th>Collected?</th><th>Shared with</th><th>Purpose</th><th>Optional?</th></tr></thead>
+            <tbody>{rows.map((r) => <tr>{r.map((c) => <td>{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>
+        <p>Data is encrypted in transit. You can stop all collection by uninstalling the app. Personal data is never sold.</p>
+
+        <h2 id="who">Who we are</h2>
+        <p>Dialback is made by {D.developer}, published on Google Play as “{D.playDeveloper}”. Questions about this policy or your data: <a href={`mailto:${D.email}`}>{D.email}</a>.</p>
+
+        <h2 id="no-account">No account, few permissions</h2>
+        <p>There is no account and no sign-in. Dialback does not ask for contacts, call log, SMS, camera, microphone, location or storage permissions.</p>
+
+        <h2 id="apps">Installed apps</h2>
+        <p>To show your apps on the home screen, Dialback reads the list of launchable apps on your device. This list stays on your device and is never sent anywhere.</p>
+
+        <h2 id="dialer">Dialer</h2>
+        <p>Numbers you type are only passed to your phone’s own dialer app when you press Call. Dialback does not store or send them, and never places calls itself.</p>
+
+        <h2 id="settings">Settings on your device</h2>
+        <p>Your theme, LCD colour, key sounds, haptics, onboarding state and purchase/unlock cache are stored on the device only. Android backup is turned off for this app, so these are not copied to your Google account. Uninstalling removes them.</p>
+
+        <h2 id="themes">Themes</h2>
+        <p>New themes are downloaded from GitHub, which hosts them. Like any web request, GitHub receives your IP address; see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>. Theme files contain only design data.</p>
+
+        <h2 id="purchases">Purchases</h2>
+        <p>Dialback Pro is a one-time in-app purchase through Google Play Billing. Google processes the payment; I never see your card or payment details. The app checks your purchases on the device to unlock Pro and to restore it after a reinstall. <a href="https://policies.google.com/privacy">Google’s privacy policy</a> applies.</p>
+
+        <h2 id="analytics">Analytics</h2>
+        <p>Google Analytics for Firebase collects app usage data such as app opens, installs, sessions, device model, OS version, country or approximate region from your IP address, an app-instance ID and in-app events (for example, when a theme is unlocked with an ad). I use it only to understand how the app is used and to improve it. See <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites or apps that use our services</a>.</p>
+
+        <h2 id="ads">Ads</h2>
+        <p>Google AdMob shows a rewarded ad <strong>only</strong> when you choose “Watch ad to unlock” for a theme. There are no banner or pop-up ads, and no ads on the home screen.</p>
+        <p>AdMob may use the advertising ID, IP address and device information to serve and measure ads, and shows personalised ads only where you consent. Users in the EEA, UK and Switzerland see Google’s consent form before any ad, and can change their choice later from “Ad privacy choices” in the theme gallery. You can reset or delete your advertising ID in Android settings.</p>
+
+        <h2 id="sharing">Sharing</h2>
+        <p>I do not sell personal data. Data is shared only with the Google services above (Google Play, Firebase and AdMob), acting as service providers.</p>
+
+        <h2 id="retention">Data retention</h2>
+        <p>Firebase Analytics data is kept for Google Analytics’ default retention period. I don’t keep any other personal data.</p>
+
+        <h2 id="children">Children</h2>
+        <p>Dialback is not directed at children under 13 and does not knowingly collect their data.</p>
+
+        <h2 id="choices">Your choices</h2>
+        <ul>
+          <li>Uninstall the app to stop all collection.</li>
+          <li>Reset or delete your advertising ID in Android settings.</li>
+          <li>Withdraw ad consent in the app from “Ad privacy choices” in the theme gallery.</li>
+          <li>Email <a href={`mailto:${D.email}`}>{D.email}</a> to ask about your data.</li>
+        </ul>
+
+        <h2 id="security">Security</h2>
+        <p>Data in transit uses HTTPS (Google services and GitHub Pages).</p>
+
+        <h2 id="changes">Changes</h2>
+        <p>Material changes will be posted on this page with a new “Last updated” date.</p>
+
+        <p class="doc-foot"><a href="/dialback/support/">Dialback support →</a></p>
+      </article>
+    </div>
+  </div>
+</Base>
+<style>
+  .doc{max-width:1000px;margin:0 auto;padding-bottom:70px}
+  .tbl{overflow-x:auto;margin:0 0 1.3em;border:1px solid var(--paper-line);border-radius:6px;background:#f4f4ec}
+  table{border-collapse:collapse;width:100%;min-width:640px;font-size:14px;line-height:1.5}
+  th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--paper-line)}
+  th{font:10px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);background:var(--cream)}
+  tr:last-child td{border-bottom:0}
+  td:first-child{color:var(--ink);font-weight:500}
+  .doc-foot{margin-top:2.4em}
+</style>

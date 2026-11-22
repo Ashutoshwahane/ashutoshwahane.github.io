@@ -23,6 +23,21 @@ const work = defineCollection({
     website: z.string().url().optional(),
     primaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
     secondaryCta: z.object({ label: z.string(), href: z.string() }).optional(),
+    // Listed on /apps (the Instagram link page) only when this is set.
+    apps: z.object({
+      platforms: z.array(z.enum(['iphone', 'android', 'mac'])).min(1),
+      platformLabel: z.string(),
+      line: z.string(),
+      // small images for the /apps page (it is opened on phones from Instagram)
+      icon: z.string().optional(),
+      shot: z.string().optional(),
+      links: z.array(z.object({
+        label: z.string(),
+        href: z.string(),
+        store: z.string().optional(),
+        ghost: z.boolean().default(false),
+      })).min(1),
+    }).optional(),
   }),
 });
 
